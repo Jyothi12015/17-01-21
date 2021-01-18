@@ -1,0 +1,30 @@
+class Solution
+{
+    public String smallestnum(String N)
+    {
+       int a[]=new int[N.length()];
+       int res[]=new int[10];
+       for(int i=0;i<N.length();i++){
+           a[i]=Integer.parseInt(""+N.charAt(i));
+       }
+       for(int i=0;i<a.length;i++){
+           int value=a[i];
+           res[value]++;
+       }
+       String s="";
+       for(int i=0;i<res.length;i++){
+           for(int j=0;j<res[i];j++){
+                   s+=""+i;
+           }
+       }
+       char a1[]=s.toCharArray();
+       if(a1[0]=='0'){
+           int value=res[0];
+           char ch=a1[value];
+           a1[value]=a1[0];
+           a1[0]=ch;
+       }
+       String s1=new String(a1);
+       return s1;
+    }
+}
